@@ -1,3 +1,5 @@
-models.model:setPrimaryRenderType("EMISSIVE_SOLID")
+models.model:setRot(0,180,0):setPrimaryRenderType("EMISSIVE_SOLID")
+models.model.base.hips.torso.hed.HelmetItemPivot:scale(0.5)
+models.model.base.hips.torso.hed.HelmetPivot:scale(0.5)
 vanilla_model.PLAYER:setVisible(false)
-animations.model.pose:play()
+animations.model.walk:play():speed(2)
