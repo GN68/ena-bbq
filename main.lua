@@ -2,7 +2,7 @@ local CamPivot = require"lib.GSCameraPivot"
 
 
 local model = models.model
-model:setParentType("WORLD"):setRot(0,180,0):setPrimaryRenderType("EMISSIVE_SOLID")
+model:setRot(0,180,0):setPrimaryRenderType("EMISSIVE_SOLID")
 
 model.base.hips.torso.hed.HelmetItemPivot:scale(0.5)
 model.base.hips.torso.hed.HelmetPivot:scale(0.5)
@@ -22,6 +22,11 @@ function A() timer = 100 end -- used to force the player model to update
 local lastAnimation ---@type Animation
 local currentAnimation ---@type Animation
 
+local idleTimer = 0
+local lookTimer = 5
+local idlelook = vec(0,0)
+local isIdle = false
+local delta = 0
 
 local function setState(newState)
 	if currentAnimation ~= newState then
@@ -39,21 +44,15 @@ local function setState(newState)
 	end
 end
 
-
-events.RENDER:register(function (delta, ctx, matrix)
-	if host:isHost() then
-		model:setVisible(ctx ~= "FIRST_PERSON")
-	end
-end)
-
 local lastSystemTime = client:getSystemTime()
 events.WORLD_RENDER:register(function (_)
 	if not player:isLoaded() then return end
 	local systemTime = client:getSystemTime()
-	local delta = (systemTime - lastSystemTime) / 1000
+	local df = (systemTime - lastSystemTime) / 1000
 	lastSystemTime = systemTime
 	
-	timer = timer + delta
+	timer = timer + df
+	delta = delta + df
 	if timer >= 10 then
 		timer = 0
 		local vel = player:getVelocity()
@@ -69,23 +68,46 @@ events.WORLD_RENDER:register(function (_)
 		
 		if player:isOnGround() then
 			if walkSpeed > 0.05 then
+				isIdle = false
 				setState(animations.model.walk)
+				idleTimer = 0
+				lookTimer = 5
 			else
-				setState(animations.model.idle2)
+				idleTimer = idleTimer - delta
+				lookTimer = lookTimer - delta
+				if lookTimer < 0 then
+					lookTimer = math.random(3,15)
+					idlelook = vec(math.random() * 2 - 1,math.random() * 2 - 1)
+				end
+				if idleTimer < 0 then
+					idleTimer = math.random(5,20)
+					local i = "idle"..(isIdle and math.random(1,4) or 1)
+					setState(animations.model[i])
+					isIdle = true
+				end
 			end
 		else
+			idleTimer = 0
+			lookTimer = 5
+			isIdle = false
 			setState(animations.model.jump)
 		end
 		
 		-- tilt
-		model
-		:setPos(player:getPos()*16)
-		:setRot(0,-byaw)
+
+		if isIdle then
+			rot.y = rot.y + idlelook.y * 90
+			rot.x = rot.x + idlelook.x * 45
+		end
 		
 		model.base.hips.torso:setRot(rot.x * 0.25,rot.y * 0.25,0)
 		model.base.hips.torso.hed:setRot(rot.x * 0.5,rot.y * 0.25,0)
 		model.base.hips.torso.hed.eyes.eyesOpened.pupil:setUV(rot.y/-1024,0)
-		
-		nameplate.ENTITY:setVisible(false)
+		delta = 0
 	end
 end)
+
+nameplate.ENTITY
+:setBackgroundColor(0,0,0,0)
+:setOutline(true)
+nameplate.ALL:setText("${badges} ${name}")
