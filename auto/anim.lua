@@ -29,11 +29,20 @@ end)
 
 
 animations.model.breathing:setBlend(0.5)
+animations.model.swingArm:overrideRot(true)
 
-
+events.TICK:register(function ()
+	if player:getSwingTime() == 1 then
+		if player:getSwingArm() == "MAIN_HAND" then
+			animations.model.swingArm:stop():play()
+		else
+			animations.model.swingArm2:stop():play()
+		end
+	end
+end)
 
 local lastSystemTime = client:getSystemTime()
-events.WORLD_RENDER:register(function (_)
+models.model.midRender = function (_)
 	if not player:isLoaded() then return end
 	local systemTime = client:getSystemTime()
 	local df = (systemTime - lastSystemTime) / 1000
@@ -50,6 +59,7 @@ events.WORLD_RENDER:register(function (_)
 	local isOnGround = player:isOnGround()
 	local vehicle = player:getVehicle()
 	
+	
 	if vehicle then
 		animations.model.breathing:play()
 		local type = vehicle:getType()
@@ -59,22 +69,36 @@ events.WORLD_RENDER:register(function (_)
 			animator:set(animations.model.sitHorse)
 		end
 	else
-		animations.model.breathing:stop()
-		groundState:set(isOnGround)
-		if isOnGround then
-			if math.abs(lvel.z) > 0.05 then
-				if player:isSprinting() then
-					animations.model.run:speed(lvel.z*9)
-					animator:set(animations.model.run)
+		if player:isClimbing() and not isOnGround then
+			animations.model.breathing:play()
+			animations.model.climb:setSpeed(lvel.y*7)
+			animator:set(animations.model.climb)
+		else
+			animations.model.breathing:stop()
+			groundState:set(isOnGround)
+			if isOnGround then
+				if math.abs(lvel.z) > 0.05 then
+					if player:isSprinting() then
+						animations.model.run:speed(lvel.z*9)
+						animator:set(animations.model.run)
+					else
+						animations.model.walk:speed(lvel.z*11)
+						animator:set(animations.model.walk)
+					end
 				else
-					animations.model.walk:speed(lvel.z*11)
-					animator:set(animations.model.walk)
+					animator:set(animations.model.idle1)
 				end
 			else
-				animator:set(animations.model.idle1)
+				if player:isInWater() then
+					if player:isSprinting() then
+						animator:set(animations.model.swimSprint)
+					else
+						animator:set(animations.model.swimLegs)
+					end
+				else
+					animator:set(animations.model.jump)
+				end
 			end
-		else
-			animator:set(animations.model.jump)
 		end
 	end
 	
@@ -103,5 +127,5 @@ events.WORLD_RENDER:register(function (_)
 			model.base.hips.torso.larm:setRot(0,0,0)
 		end
 	end
-end)
+end
 
