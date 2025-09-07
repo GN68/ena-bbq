@@ -1,18 +1,10 @@
-A code ready Figura Avatar template
+# ENA from ENA Dream BBQ
+### Credits
+Original Character by [Joel G, The ENA Team](https://joelgc.com/)
 
-## Notes
-- to avoid using too many init instructions and loading unused scripts, only the `main.lua` file is triggered at initialization.
-- Lua Language Server hinting is disabled to clear up space on the editor, simply hover over the variable to get its type instead.
-- Submodules are not ignored.
+Time spent: 15 solid hours of session time
 
-## Files Included
-- [GrandpaScout's Figura Rewrite VSCode Docs](https://github.com/GrandpaScout/FiguraRewriteVSDocs/tree/latest)
-  - Modified to include:
-    - **Figura 0.1.5**
-      - addScript
-      - getScripts
-      - getScript
-    - **Goofy Plugin**
-      - setDisableGUIElement
-
-###### last updated for: Figura 0.1.5
+> [!TIP]
+>Porting over characters from other franchises takes alot of time and effort, feel free to leave a generous tip to get me more motivated and create even more crazier things thats free for all :)  
+> [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L3L719367F)
+>
