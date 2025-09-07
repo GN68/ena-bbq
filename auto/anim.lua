@@ -86,7 +86,7 @@ models.model.midRender = function (_)
 						animator:set(animations.model.walk)
 					end
 				else
-					animator:set(animations.model.pose)
+					animator:set(animations.model.idle1)
 				end
 			else
 				if player:isInWater() then
