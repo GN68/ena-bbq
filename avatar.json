@@ -1,6 +1,11 @@
 {
-	"author":"Unknown",
+	"authors":[
+		"§fAvatar Recreation",
+		"by:§r GNanimates",
+		"§fOriginal Character",
+		"by:§r Joel G"
+	],
 	"color":"#ff0000",
-	"description":"...",
+	"description":"ENA from Dream BBQ",
 	"autoScripts": ["main"]
 }
