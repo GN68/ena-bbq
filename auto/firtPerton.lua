@@ -16,10 +16,9 @@ extraEvents.SHADER_CHANGED:register(function (shader)
 end)
 local rightItemDisplay = model.base.right.rightPivot.rightItem:newItem("RightItem"):item("air"):scale(0.2):light(15,15)
 local rightHandState = StateDiff.new(function (state, lastState, ...)
-	local rightItem = player:getHeldItem()
-	if rightItem.id ~= "minecraft:air" then
-		rightItemDisplay:item(rightItem)
-		if rightItem:isBlockItem() then
+	if state.id ~= "minecraft:air" then
+		rightItemDisplay:item(state)
+		if state:isBlockItem() then
 			rightItemDisplay:scale(0.15)
 		else
 			rightItemDisplay:scale(0.2)
@@ -34,10 +33,9 @@ end)
 
 local leftItemDisplay = model.base.left.leftPivot.leftItem:newItem("LeftItem"):item("air"):scale(0.2):light(15,15)
 local leftHandState = StateDiff.new(function (state, lastState, ...)
-	local leftItem = player:getHeldItem(true)
-	if leftItem.id ~= "minecraft:air" then
-		leftItemDisplay:item(leftItem)
-		if leftItem:isBlockItem() then
+	if state.id ~= "minecraft:air" then
+		leftItemDisplay:item(state)
+		if state:isBlockItem() then
 			leftItemDisplay:scale(0.15)
 		else
 			leftItemDisplay:scale(0.2)
@@ -70,7 +68,7 @@ events.TICK:register(function ()
 	leftHandState:set(offHandItem)
 	
 	if player:getSwingTime() == 1 then
-		if player:getSwingArm() == "MAIN_HAND" then
+		if player:getSwingArm() == (player:isLeftHanded() and "OFF_HAND" or "MAIN_HAND") then
 			animations.firstPerson.rightOn:stop()
 			rightHandState:set(airItem)
 		else

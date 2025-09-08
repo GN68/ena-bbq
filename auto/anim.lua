@@ -33,7 +33,7 @@ animations.model.swingArm:overrideRot(true)
 
 events.TICK:register(function ()
 	if player:getSwingTime() == 1 then
-		if player:getSwingArm() == "MAIN_HAND" then
+		if player:getSwingArm() == (player:isLeftHanded() and "OFF_HAND" or "MAIN_HAND") then
 			animations.model.swingArm:stop():play()
 		else
 			animations.model.swingArm2:stop():play()
