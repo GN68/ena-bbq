@@ -1,11 +1,9 @@
 {
 	"meta": {
 		"format_version": "4.10",
-		"model_format": "free",
+		"model_format": "figura",
 		"box_uv": false
 	},
-	"name": "model",
-	"model_identifier": "",
 	"visible_box": [1, 1, 0],
 	"variable_placeholders": "",
 	"variable_placeholder_buttons": [],
@@ -15755,8 +15753,8 @@
 					"uv": {
 						"xwAa": [0.4375, 3],
 						"Ulvy": [0.5, 2.9],
-						"DTgG": [0.25, 3],
-						"jXWy": [0.25, 2.5]
+						"jXWy": [0.25, 2.5],
+						"DTgG": [0.25, 3]
 					},
 					"vertices": ["DTgG", "jXWy", "Ulvy", "xwAa"],
 					"texture": 0
@@ -15765,8 +15763,8 @@
 					"uv": {
 						"lDdA": [0.75, 3],
 						"9Leq": [0.5, 2.625],
-						"xucu": [0.25, 2.625],
-						"xwAa": [0.25, 2.25]
+						"xwAa": [0.25, 2.25],
+						"xucu": [0.25, 2.625]
 					},
 					"vertices": ["xucu", "xwAa", "9Leq", "lDdA"],
 					"texture": 0
@@ -15775,8 +15773,8 @@
 					"uv": {
 						"bd6T": [0, 2.5],
 						"8pyb": [0, 2.5],
-						"skI7": [0, 2.5],
-						"lDdA": [0, 2.5]
+						"lDdA": [0, 2.5],
+						"skI7": [0, 2.5]
 					},
 					"vertices": ["skI7", "lDdA", "8pyb", "bd6T"],
 					"texture": 0
@@ -15785,8 +15783,8 @@
 					"uv": {
 						"Ox5C": [0.5, 2.75],
 						"Rk9B": [0.33333, 2.5],
-						"dALe": [0, 2.5],
-						"bd6T": [0, 2.5]
+						"bd6T": [0, 2.5],
+						"dALe": [0, 2.5]
 					},
 					"vertices": ["dALe", "bd6T", "Rk9B", "Ox5C"],
 					"texture": 0
@@ -15795,8 +15793,8 @@
 					"uv": {
 						"xwAa": [0.52718, 2.78043],
 						"jXWy": [0.66172, 2.33777],
-						"JJZO": [0.63236, 2.19686],
-						"Ox5C": [0.34709, 2]
+						"Ox5C": [0.34709, 2],
+						"JJZO": [0.63236, 2.19686]
 					},
 					"vertices": ["JJZO", "Ox5C", "jXWy", "xwAa"],
 					"texture": 0
@@ -15805,8 +15803,8 @@
 					"uv": {
 						"Ox5C": [0.01873, 2.50001],
 						"bd6T": [0.01501, 2.53473],
-						"lDdA": [0.00372, 2.53473],
-						"xwAa": [0, 2.5]
+						"xwAa": [0, 2.5],
+						"lDdA": [0.00372, 2.53473]
 					},
 					"vertices": ["lDdA", "xwAa", "bd6T", "Ox5C"],
 					"texture": 0
@@ -22793,6 +22791,20 @@
 							"autouv": 0,
 							"selected": false,
 							"children": [
+								{
+									"name": "ChestplatePivot",
+									"origin": [0, 22.952, 0],
+									"color": 0,
+									"uuid": "9d13e654-fd11-6c31-5f7c-e319ba13638e",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								},
 								"2322e4dc-79d9-6503-03db-38688c205310",
 								"69b278e3-ef06-531a-b52a-750679f21328",
 								{
@@ -22808,6 +22820,21 @@
 									"autouv": 0,
 									"selected": false,
 									"children": [
+										{
+											"name": "LeftShoulderPivot",
+											"origin": [3.36072, 23.76285, 0],
+											"rotation": [-180, 0, -90],
+											"color": 0,
+											"uuid": "fcc53511-7133-1e29-4670-f07f1f4e962a",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										},
 										{
 											"name": "lelbow",
 											"origin": [7.88071, 23.69839, -0.14412],
@@ -22842,7 +22869,7 @@
 															"origin": [15.36072, 22.76285, 1.03197],
 															"rotation": [-180, 0, -90],
 															"color": 0,
-															"uuid": "fcc53511-7133-1e29-4670-f07f1f4e962a",
+															"uuid": "8a2d0d5c-132f-a5eb-765c-494792042615",
 															"export": true,
 															"mirror_uv": false,
 															"isOpen": true,
@@ -22876,6 +22903,21 @@
 									"autouv": 0,
 									"selected": false,
 									"children": [
+										{
+											"name": "RightShoulderPivot",
+											"origin": [-3.36072, 23.76285, 0],
+											"rotation": [-180, 0, 90],
+											"color": 0,
+											"uuid": "da57e25d-f987-e031-e500-4aa93bc53e2a",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										},
 										"c97e0b8a-22fa-cfba-3ac3-ddfecc5ba2d9",
 										{
 											"name": "relbow",
@@ -23079,6 +23121,20 @@
 									]
 								}
 							]
+						},
+						{
+							"name": "LeggingsPivot",
+							"origin": [0, 14.72, 0],
+							"color": 0,
+							"uuid": "dbc9ad52-b96a-1772-7c4c-1a08aeecd039",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": []
 						}
 					]
 				},
@@ -23124,12 +23180,72 @@
 									"visibility": true,
 									"autouv": 0,
 									"selected": false,
-									"children": ["d70b3d27-5055-eb0b-83b6-6d2a6357278c", "3581bec0-6792-751a-4048-f1fcc2e9f9d6"]
+									"children": [
+										"d70b3d27-5055-eb0b-83b6-6d2a6357278c",
+										"3581bec0-6792-751a-4048-f1fcc2e9f9d6",
+										{
+											"name": "LeftBootPivot",
+											"origin": [1.958, 1.25, 3],
+											"rotation": [-85, 0, 0],
+											"color": 0,
+											"uuid": "df34c3ed-67ae-e5f7-268f-ccd4ca465acd",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										},
+										{
+											"name": "LeftBootPivot2",
+											"origin": [1.958, 0, 0],
+											"color": 0,
+											"uuid": "45e38a01-5d42-b6ee-c04b-7785740f4e7e",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										}
+									]
 								},
-								"73fc75ec-c840-1809-9f1c-bddb9ee494fc"
+								"73fc75ec-c840-1809-9f1c-bddb9ee494fc",
+								{
+									"name": "LeftLeggingPivot2",
+									"origin": [2.208, 8.984, 0],
+									"color": 0,
+									"uuid": "ca3d55f5-a1eb-ee75-fd8a-20203dd87c9a",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": false,
+									"children": []
+								}
 							]
 						},
-						"80f0b7da-8b82-8832-d3d0-b637a0d36276"
+						"80f0b7da-8b82-8832-d3d0-b637a0d36276",
+						{
+							"name": "LeftLeggingPivot",
+							"origin": [1.958, 14.984, 0],
+							"color": 0,
+							"uuid": "05e78f2a-1daa-ed13-40ad-e17cf2e0b3f5",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": []
+						}
 					]
 				},
 				{
@@ -23174,12 +23290,71 @@
 									"visibility": true,
 									"autouv": 0,
 									"selected": false,
-									"children": ["f289f8da-12b0-34d2-bbc4-ff3c9ee050d4"]
+									"children": [
+										"f289f8da-12b0-34d2-bbc4-ff3c9ee050d4",
+										{
+											"name": "RightBootPivot",
+											"origin": [-1.958, 1.25, 3],
+											"rotation": [-85, 0, 0],
+											"color": 0,
+											"uuid": "89f0c9d4-2a73-80a7-71db-f19d591d4402",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										},
+										{
+											"name": "RightBootPivot2",
+											"origin": [-1.958, 0, 0],
+											"color": 0,
+											"uuid": "d63e0bfc-8bc6-a08a-bc8a-f6456857fbc1",
+											"export": true,
+											"mirror_uv": false,
+											"isOpen": true,
+											"locked": false,
+											"visibility": true,
+											"autouv": 0,
+											"selected": false,
+											"children": []
+										}
+									]
+								},
+								{
+									"name": "RightLeggingPivot2",
+									"origin": [-2.208, 8.984, 0],
+									"color": 0,
+									"uuid": "2865e8c2-612e-693c-f97c-8108c6466564",
+									"export": true,
+									"mirror_uv": false,
+									"isOpen": true,
+									"locked": false,
+									"visibility": true,
+									"autouv": 0,
+									"selected": true,
+									"children": []
 								}
 							]
 						},
 						"7f93683a-fb34-059f-645a-de3d2060d6b1",
-						"3c5d261e-0d34-b98a-c66f-1109f60d044d"
+						"3c5d261e-0d34-b98a-c66f-1109f60d044d",
+						{
+							"name": "RightLeggingPivot",
+							"origin": [-1.958, 14.984, 0],
+							"color": 0,
+							"uuid": "e4a83738-4a5e-8027-68d6-8f5cc654c769",
+							"export": true,
+							"mirror_uv": false,
+							"isOpen": true,
+							"locked": false,
+							"visibility": true,
+							"autouv": 0,
+							"selected": false,
+							"children": []
+						}
 					]
 				}
 			]
@@ -23253,7 +23428,7 @@
 			"override": false,
 			"length": 0,
 			"snapping": 25,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -33303,7 +33478,7 @@
 			"override": true,
 			"length": 0.5,
 			"snapping": 24,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
