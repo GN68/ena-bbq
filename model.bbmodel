@@ -22789,7 +22789,7 @@
 							"locked": false,
 							"visibility": true,
 							"autouv": 0,
-							"selected": false,
+							"selected": true,
 							"children": [
 								{
 									"name": "ChestplatePivot",
@@ -23334,7 +23334,7 @@
 									"locked": false,
 									"visibility": true,
 									"autouv": 0,
-									"selected": true,
+									"selected": false,
 									"children": []
 								}
 							]
@@ -23428,7 +23428,7 @@
 			"override": false,
 			"length": 0,
 			"snapping": 25,
-			"selected": true,
+			"selected": false,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -33342,10 +33342,10 @@
 		},
 		{
 			"uuid": "535bfe5e-143a-540c-b966-ce7a2b2f5be8",
-			"name": "swingArm",
+			"name": "swingArmRight",
 			"loop": "once",
 			"override": true,
-			"length": 0.5,
+			"length": 0.25,
 			"snapping": 24,
 			"selected": false,
 			"anim_time_update": "",
@@ -33367,7 +33367,7 @@
 								}
 							],
 							"uuid": "98bd2310-042f-0b60-ff4b-5b937198d4f1",
-							"time": 0.08333,
+							"time": 0,
 							"color": -1,
 							"interpolation": "step"
 						},
@@ -33381,7 +33381,7 @@
 								}
 							],
 							"uuid": "44353048-87ed-d7df-5b20-6dee83549094",
-							"time": 0.20833,
+							"time": 0.125,
 							"color": -1,
 							"interpolation": "step"
 						}
@@ -33396,7 +33396,7 @@
 							"data_points": [
 								{
 									"x": "0",
-									"y": "-45",
+									"y": "-90",
 									"z": "0"
 								}
 							],
@@ -33415,7 +33415,7 @@
 								}
 							],
 							"uuid": "73fb6426-91b8-46f3-623b-57c9fed84554",
-							"time": 0.25,
+							"time": 0.125,
 							"color": -1,
 							"interpolation": "step"
 						}
@@ -33435,7 +33435,7 @@
 								}
 							],
 							"uuid": "9b4cb52c-c305-7b2a-aed4-3afc56f8f24a",
-							"time": 0.25,
+							"time": 0.125,
 							"color": -1,
 							"interpolation": "step"
 						},
@@ -33463,7 +33463,7 @@
 								}
 							],
 							"uuid": "0a825bf4-d708-1bfe-4892-724b52bbaac6",
-							"time": 0.5,
+							"time": 0.25,
 							"color": -1,
 							"interpolation": "step"
 						}
@@ -33473,12 +33473,12 @@
 		},
 		{
 			"uuid": "4fdbcc24-ef72-4c03-8e0e-96b668d4c7a1",
-			"name": "swingArm2",
+			"name": "swingArmLeft",
 			"loop": "once",
 			"override": true,
-			"length": 0.5,
+			"length": 0.25,
 			"snapping": 24,
-			"selected": false,
+			"selected": true,
 			"anim_time_update": "",
 			"blend_weight": "",
 			"start_delay": "",
@@ -33498,7 +33498,7 @@
 								}
 							],
 							"uuid": "98bd2310-042f-0b60-ff4b-5b937198d4f1",
-							"time": 0.08333,
+							"time": 0,
 							"color": -1,
 							"interpolation": "step"
 						},
@@ -33512,7 +33512,7 @@
 								}
 							],
 							"uuid": "44353048-87ed-d7df-5b20-6dee83549094",
-							"time": 0.20833,
+							"time": 0.125,
 							"color": -1,
 							"interpolation": "step"
 						}
@@ -33527,7 +33527,7 @@
 							"data_points": [
 								{
 									"x": "0",
-									"y": "45",
+									"y": "90",
 									"z": "0"
 								}
 							],
@@ -33541,12 +33541,12 @@
 							"data_points": [
 								{
 									"x": "0",
-									"y": "0",
+									"y": "5",
 									"z": "0"
 								}
 							],
-							"uuid": "1ad0a7ca-eb91-ec3a-675f-a53f19022d3a",
-							"time": 0.25,
+							"uuid": "29915d4f-638b-a7fe-b926-494a7386653d",
+							"time": 0.125,
 							"color": -1,
 							"interpolation": "step"
 						}
@@ -33575,26 +33575,12 @@
 							"data_points": [
 								{
 									"x": "0",
-									"y": "45",
+									"y": "12.5",
 									"z": "0"
 								}
 							],
 							"uuid": "f6f8bafe-cf58-9245-6032-1a1902d6d5a7",
-							"time": 0.25,
-							"color": -1,
-							"interpolation": "step"
-						},
-						{
-							"channel": "rotation",
-							"data_points": [
-								{
-									"x": "0",
-									"y": "0",
-									"z": "0"
-								}
-							],
-							"uuid": "c8ed7a94-bcb7-9309-cd72-32f64cc757ab",
-							"time": 0.5,
+							"time": 0.125,
 							"color": -1,
 							"interpolation": "step"
 						}

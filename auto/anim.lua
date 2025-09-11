@@ -29,14 +29,15 @@ end)
 
 
 animations.model.breathing:setBlend(0.5)
-animations.model.swingArm:overrideRot(true)
+animations.model.swingArmRight:overrideRot(true)
+animations.model.swingArmLeft:overrideRot(true)
 
 events.TICK:register(function ()
 	if player:getSwingTime() == 1 then
 		if player:getSwingArm() == (player:isLeftHanded() and "OFF_HAND" or "MAIN_HAND") then
-			animations.model.swingArm:stop():play()
+			animations.model.swingArmRight:stop():play()
 		else
-			animations.model.swingArm2:stop():play()
+			animations.model.swingArmLeft:stop():play()
 		end
 	end
 end)
