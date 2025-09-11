@@ -13,3 +13,5 @@ models.model.base.rleg.RightLeggingPivot:scale(0.7,0.7,0.6)
 models.model.base.rleg.rknee.RightLeggingPivot2:scale(0.6,0.7,0.6)
 models.model.base.rleg.rknee.rfoot.RightBootPivot:scale(0.5,0.5,0.4)
 models.model.base.rleg.rknee.rfoot.RightBootPivot2:scale(0.53,0.5,0.4)
+
+vanilla_model.CAPE:setVisible(false)
