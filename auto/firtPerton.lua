@@ -5,10 +5,21 @@ end
 local StateDiff = require("lib.stateDiff")
 local extraEvents = require("lib.extraEvents")
 
+---@type Minecraft.itemID[]
+local GUI_ITEMS = {
+	"minecraft:trident",
+	"minecraft:shield"
+}
+
 local model = models.firstPerson
 model:setParentType("HUD")
 
-
+---@param a ItemStack
+---@param b ItemStack
+local function changeItemCheck(a,b)
+	if (not b) or (not a) then return true end
+	return a.id ~= b.id
+end
 
 extraEvents.SHADER_CHANGED:register(function (shader)
 	if shader then model:setPrimaryRenderType("TRANSLUCENT")
@@ -29,7 +40,16 @@ local rightHandState = StateDiff.new(function (state, lastState, ...)
 		animations.firstPerson.rightOn:stop()
 		animations.firstPerson.rightOff:stop():play()
 	end
-end)
+	
+	local shouldGUI = false
+	for _, id in pairs(GUI_ITEMS) do
+		if state.id == id then
+			shouldGUI = true
+			break
+		end
+	end
+	rightItemDisplay:setDisplayMode(shouldGUI and "GUI" or "NONE")
+end,nil,changeItemCheck)
 
 local leftItemDisplay = model.base.left.leftPivot.leftItem:newItem("LeftItem"):item("air"):scale(0.2):light(15,15)
 local leftHandState = StateDiff.new(function (state, lastState, ...)
@@ -46,9 +66,20 @@ local leftHandState = StateDiff.new(function (state, lastState, ...)
 		animations.firstPerson.leftOn:stop()
 		animations.firstPerson.leftOff:stop():play()
 	end
-end)
+	local shouldGUI = false
+	for _, id in pairs(GUI_ITEMS) do
+		if state.id == id then
+			shouldGUI = true
+			break
+		end
+	end
+	leftItemDisplay:setDisplayMode(shouldGUI and "GUI" or "NONE")
+end,nil,changeItemCheck)
 
 local airItem = world.newItem("minecraft:air")
+
+
+
 
 local lspeed, speed = 0,0
 events.TICK:register(function ()
@@ -64,18 +95,21 @@ events.TICK:register(function ()
 		mainItem, offHandItem = offHandItem, mainItem
 	end
 	
+	vanilla_model.HELD_ITEMS:setVisible(not mainItem)
+	
+	
+	
+	if mainItem.id == "minecraft:filled_map" then
+		vanilla_model.RIGHT_ITEM:setVisible(true)
+		mainItem = airItem
+	end
+	if offHandItem.id == "minecraft:filled_map" then
+		vanilla_model.LEFT_ITEM:setVisible(true)
+		offHandItem = airItem
+	end
+	
 	rightHandState:set(mainItem)
 	leftHandState:set(offHandItem)
-	
-	if player:getSwingTime() == 1 then
-		if player:getSwingArm() == (player:isLeftHanded() and "OFF_HAND" or "MAIN_HAND") then
-			animations.firstPerson.rightOn:stop()
-			rightHandState:set(airItem)
-		else
-			animations.firstPerson.leftOn:stop()
-			leftHandState:set(airItem)
-		end
-	end
 end)
 
 
@@ -83,7 +117,6 @@ animations.firstPerson.idle:play():speed(0.75)
 
 local firstPerson = true
 events.WORLD_RENDER:register(function (delta)
-	vanilla_model.HELD_ITEMS:setVisible(not firstPerson)
 	
 	local tspeed = math.min(math.lerp(lspeed,speed,delta), 1)
 	local time = client:getSystemTime()/1000
