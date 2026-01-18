@@ -78,7 +78,7 @@ models.model.midRender = function (_)
 			animations.model.breathing:stop()
 			groundState:set(isOnGround)
 			if isOnGround then
-				if math.abs(lvel.z) > 0.05 then
+				if math.abs(lvel.z) > 0.01 then
 					if player:isSprinting() then
 						animations.model.run:speed(lvel.z*9)
 						animator:set(animations.model.run)
