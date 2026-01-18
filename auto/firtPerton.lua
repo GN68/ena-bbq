@@ -95,7 +95,7 @@ events.TICK:register(function ()
 		mainItem, offHandItem = offHandItem, mainItem
 	end
 	
-	vanilla_model.HELD_ITEMS:setVisible(not mainItem)
+	vanilla_model.HELD_ITEMS:setVisible(true)
 	
 	
 	
