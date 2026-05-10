@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch
 if not host:isHost() then
 	models.firstPerson:setVisible(false)
 	return
@@ -8,7 +9,12 @@ local extraEvents = require("lib.extraEvents")
 ---@type Minecraft.itemID[]
 local GUI_ITEMS = {
 	"minecraft:trident",
-	"minecraft:shield"
+	"minecraft:shield",
+}
+
+local ITEM_HELD_BYPASS = {
+	"minecraft:filled_map",
+	"exposure:photograph",
 }
 
 local model = models.firstPerson
@@ -79,6 +85,11 @@ end,nil,changeItemCheck)
 local airItem = world.newItem("minecraft:air")
 
 
+local function has(string,array)
+	for _, value in pairs(array) do
+		if value == string then return true end
+	end
+end
 
 
 local lspeed, speed = 0,0
@@ -95,15 +106,15 @@ events.TICK:register(function ()
 		mainItem, offHandItem = offHandItem, mainItem
 	end
 	
-	vanilla_model.HELD_ITEMS:setVisible(true)
+	vanilla_model.HELD_ITEMS:setVisible(not mainItem or (not renderer:isFirstPerson()))
 	
 	
 	
-	if mainItem.id == "minecraft:filled_map" then
+	if has(mainItem.id, ITEM_HELD_BYPASS) then
 		vanilla_model.RIGHT_ITEM:setVisible(true)
 		mainItem = airItem
 	end
-	if offHandItem.id == "minecraft:filled_map" then
+	if has(offHandItem.id, ITEM_HELD_BYPASS) then
 		vanilla_model.LEFT_ITEM:setVisible(true)
 		offHandItem = airItem
 	end
